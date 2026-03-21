@@ -1,0 +1,10 @@
+Fuzz Report — Task 1 / ProtocolRegistry
+
+Date:
+Operator:
+Command:
+forge test --match-test testFuzz_T1_19_BelowFloorAlwaysReverts --fuzz-runs 10000 -vv
+
+Result:
+
+Notes:

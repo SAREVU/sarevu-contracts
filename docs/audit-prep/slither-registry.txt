@@ -1,0 +1,4 @@
+PLACEHOLDER
+Run:
+slither contracts/core/ProtocolRegistry.sol > docs/audit-prep/slither-registry.txt
+Then review the output and confirm Critical = 0 and High = 0 before acceptance.

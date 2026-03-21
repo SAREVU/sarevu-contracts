@@ -1,0 +1,13 @@
+Coverage Report — Task 1 / ProtocolRegistry
+
+Date:
+Operator:
+Command:
+forge coverage
+
+Lines:
+Branches:
+
+Result:
+
+Notes:
