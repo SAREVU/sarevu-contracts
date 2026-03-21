@@ -32,3 +32,15 @@ Close the current task fully, integrate it, update the package, and only then op
 
 ## Honesty note
 This environment does not have Foundry or Slither installed, so this package is prepared from the specification and reviewed logic, but not executed here.
+## Coverage policy
+
+For Task 1 acceptance, coverage is measured on core contract logic only.
+
+Included in the mandatory coverage target:
+- `contracts/core/**`
+
+Excluded from the mandatory coverage target:
+- `contracts/script/**`
+
+Rationale:
+Deployment scripts are operational helpers and are not part of the protocol's core business logic. Coverage thresholds for acceptance apply to core contracts only.

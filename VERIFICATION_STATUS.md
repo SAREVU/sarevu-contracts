@@ -15,3 +15,15 @@ The current environment does not include Foundry or Slither.
 
 ## Required next step
 Run the verification commands locally and store the outputs under `docs/acceptance/` and `docs/audit-prep/` before formal task closure.
+## Coverage clarification
+
+The acceptance coverage threshold for Task 1 applies to core contracts only.
+
+Accepted scope:
+- `contracts/core/**`
+
+Excluded from threshold calculation:
+- `contracts/script/**`
+
+Reason:
+Scripts are deployment utilities and are not part of the core protocol logic under acceptance review.
