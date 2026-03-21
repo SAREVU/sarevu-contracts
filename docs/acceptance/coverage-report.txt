@@ -1,13 +1,55 @@
-Coverage Report — Task 1 / ProtocolRegistry
+Compiling 27 files with Solc 0.8.33
+Solc 0.8.33 finished in 1.65s
+Compiler run successful with warnings:
+Warning (2018): Function state mutability can be restricted to view
+   --> contracts/test/ProtocolRegistryTest.t.sol:260:5:
+    |
+260 |     function test_Extra_ParameterExistsUnknownKeyReturnsFalse() public {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
 
-Date:
-Operator:
-Command:
-forge coverage
+Analysing contracts...
+Running tests...
 
-Lines:
-Branches:
+Ran 29 tests for contracts/test/ProtocolRegistryTest.t.sol:ProtocolRegistryTest
+[PASS] testFuzz_T1_19_BelowFloorAlwaysReverts(uint256) (runs: 256, μ: 91970, ~: 91970)
+[PASS] test_Extra_CanonicalParameterKeysInvariant() (gas: 608)
+[PASS] test_Extra_CanonicalParameterRegistrationRoundtrip() (gas: 462939)
+[PASS] test_Extra_GetFloorUnknownKeyReverts() (gas: 11931)
+[PASS] test_Extra_IsBelowFloorUnknownKeyReverts() (gas: 12308)
+[PASS] test_Extra_ParameterExistsUnknownKeyReturnsFalse() (gas: 8497)
+[PASS] test_Extra_PauseOnlyOwnerRevertsForAttacker() (gas: 14290)
+[PASS] test_Extra_SetFloorUnknownKeyReverts() (gas: 17108)
+[PASS] test_Extra_SetFloorValidUpdatesStoredValueAndEvent() (gas: 92792)
+[PASS] test_Extra_SetParameterUnknownKeyReverts() (gas: 19414)
+[PASS] test_Extra_UnpauseOnlyOwnerRevertsForAttacker() (gas: 41672)
+[PASS] test_T1_01_ConstructorValidOwner() (gas: 863675)
+[PASS] test_T1_02_ConstructorZeroAddress() (gas: 63483)
+[PASS] test_T1_03_RegisterParameterSuccessAndEvent() (gas: 91391)
+[PASS] test_T1_04_RegisterParameterDuplicateKey() (gas: 86998)
+[PASS] test_T1_05_RegisterParameterBelowFloor() (gas: 21986)
+[PASS] test_T1_06_SetParameterValid() (gas: 92448)
+[PASS] test_T1_07_SetParameterBelowFloorValueUnchanged() (gas: 91601)
+[PASS] test_T1_08_SetParameterExactlyAtFloor() (gas: 92533)
+[PASS] test_T1_09_SetParameterUnauthorizedCaller() (gas: 88544)
+[PASS] test_T1_10_SetParameterEventContainsOldValue() (gas: 94079)
+[PASS] test_T1_11_GetParameterUnknownKey() (gas: 11889)
+[PASS] test_T1_12_IsBelowFloorTrue() (gas: 84982)
+[PASS] test_T1_13_IsBelowFloorFalseAtFloor() (gas: 87421)
+[PASS] test_T1_14_PauseBlocksSetParameter() (gas: 113457)
+[PASS] test_T1_15_PauseDoesNotBlockGetParameter() (gas: 109960)
+[PASS] test_T1_16_UnpauseRestoresSetParameter() (gas: 101613)
+[PASS] test_T1_17_OwnershipTransferOldOwnerLosesRights() (gas: 108545)
+[PASS] test_T1_18_SetFloorInvalid() (gas: 87503)
+Suite result: ok. 29 passed; 0 failed; 0 skipped; finished in 75.56ms (113.24ms CPU time)
 
-Result:
+Ran 1 test suite in 79.00ms (75.56ms CPU time): 29 tests passed, 0 failed, 0 skipped (29 total tests)
 
-Notes:
+╭-----------------------------------------------+-----------------+-----------------+-----------------+-----------------╮
+| File                                          | % Lines         | % Statements    | % Branches      | % Funcs         |
++=======================================================================================================================+
+| contracts/core/ProtocolRegistry.sol           | 100.00% (39/39) | 100.00% (39/39) | 100.00% (10/10) | 100.00% (10/10) |
+|-----------------------------------------------+-----------------+-----------------+-----------------+-----------------|
+| contracts/script/DeployProtocolRegistry.s.sol | 0.00% (0/14)    | 0.00% (0/15)    | 0.00% (0/2)     | 0.00% (0/1)     |
+|-----------------------------------------------+-----------------+-----------------+-----------------+-----------------|
+| Total                                         | 73.58% (39/53)  | 72.22% (39/54)  | 83.33% (10/12)  | 90.91% (10/11)  |
+╰-----------------------------------------------+-----------------+-----------------+-----------------+-----------------╯
