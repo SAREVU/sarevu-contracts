@@ -13,3 +13,6 @@
 
 ## Decision
 Task 2 accepted and closed. The contract is highly secure and meets all core requirements.
+
+## Signature
+Oleksandr
