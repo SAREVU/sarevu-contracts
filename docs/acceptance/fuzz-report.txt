@@ -1,9 +1,6 @@
-Task 2 — EscrowVault — Fuzz Report
+Test Name: testFuzz_AuthorizedValidInputsAlwaysAnchor
+Runs: 256
+Status: SUCCESS
+Results: All invariants held. No reverts on valid inputs.
 
-Results (10000 runs each):
-- testFuzz_T2_F1_DepositAmounts: PASS
-- testFuzz_T2_F1_DepositZeroAlwaysReverts: PASS
-- testFuzz_T2_F2_DelayValues: PASS
-- testFuzz_T2_F3_TerminalStateSingleUse_Release: PASS
-- testFuzz_T2_F3_TerminalStateSingleUse_Refund: PASS
-- testFuzz_T2_F4_ConservationOfValue: PASS
+Tool: foundry-fuzz
