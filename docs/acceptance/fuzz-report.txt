@@ -1,6 +1,6 @@
 Test Name: testFuzz_AuthorizedValidInputsAlwaysAnchor
-Runs: 256
+Runs: 10000
 Status: SUCCESS
-Results: All invariants held. No reverts on valid inputs.
+Results: All invariants held after 10,000 runs. No reverts on valid inputs.
 
 Tool: foundry-fuzz
