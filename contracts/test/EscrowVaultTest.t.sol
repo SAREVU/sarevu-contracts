@@ -722,4 +722,47 @@ contract EscrowVaultTest is Test {
     function test_Extra3_UsdcImmutable() public view {
         assertEq(address(vault.usdc()), address(usdc));
     }
+    
+    function test_Branch_MarkReleasable_Unknown() public {
+        vm.expectRevert(abi.encodeWithSelector(EscrowVault.BookingNotFound.selector, BOOKING_UNKNOWN));
+        vm.prank(operator);
+        vault.markReleasable(BOOKING_UNKNOWN, DELAY);
+    }
+
+    function test_Branch_Release_Unknown() public {
+        vm.expectRevert(abi.encodeWithSelector(EscrowVault.BookingNotFound.selector, BOOKING_UNKNOWN));
+        vm.prank(operator);
+        vault.release(BOOKING_UNKNOWN, host);
+    }
+
+    
+    function test_Branch_Refund_Unknown() public {
+        vm.expectRevert(abi.encodeWithSelector(EscrowVault.BookingNotFound.selector, BOOKING_UNKNOWN));
+        vm.prank(operator);
+        vault.refund(BOOKING_UNKNOWN, guest);
+    }
+
+    function test_Branch_Pause_Unauthorized() public {
+        vm.expectRevert(abi.encodeWithSelector(IAccessControl.AccessControlUnauthorizedAccount.selector, attacker, vault.DEFAULT_ADMIN_ROLE()));
+        vm.prank(attacker);
+        vault.pause();
+    }
+
+    function test_Branch_Unpause_Unauthorized() public {
+        vm.prank(admin);
+        vault.pause();
+        vm.expectRevert(abi.encodeWithSelector(IAccessControl.AccessControlUnauthorizedAccount.selector, attacker, vault.DEFAULT_ADMIN_ROLE()));
+        vm.prank(attacker);
+        vault.unpause();
+    }
+
+    function test_Branch_Refund_AlreadyRefunded() public {
+        _deposit(BOOKING_A, AMOUNT);
+        vm.prank(operator);
+        vault.refund(BOOKING_A, guest);
+        
+        vm.expectRevert(abi.encodeWithSelector(EscrowVault.InvalidState.selector, BOOKING_A, EscrowVault.EscrowState.Refunded, EscrowVault.EscrowState.Held));
+        vm.prank(operator);
+        vault.refund(BOOKING_A, guest);
+    }
 }

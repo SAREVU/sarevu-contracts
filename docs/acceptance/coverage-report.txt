@@ -8,4 +8,5 @@ Results (forge coverage):
 contracts/core/EscrowVault.sol:
 - Lines: 100.00% (57/57)
 - Functions: 100.00% (11/11)
+- Branches: 88.89% (16/18)
 - Statements: 92.75% (64/69)
