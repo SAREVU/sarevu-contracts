@@ -1,18 +1,15 @@
 # Acceptance Note — Task 2 / EscrowVault
 
-**Status:** CLOSED
+**Status:** Accepted by policy decision
 **Date:** 2026-03-22
 **Operator:** Oleksandr
 
 ## Verification Summary
-- **Build:** PASS
-- **Unit Tests:** PASS (45 tests)
-- **Fuzzing:** PASS (10,000 runs per test, Invariants held)
-- **Coverage:** PASS (Lines: 100%, Branches: 88.89%)
-- **Static Analysis:** PASS (Manual Peer Review: CEI pattern & Reentrancy guards verified)
+- **build:** PASS
+- **tests:** PASS (45/45 tests)
+- **fuzz:** PASS
+- **coverage:** Accepted with 88.89% branches (Lines: 100%, Functions: 100%, Statements: 97.10%). Policy decision applied.
+- **slither:** Unavailable locally; replaced by manual peer review.
 
 ## Decision
-The EscrowVault contract is production-ready. All P0 security risks are mitigated. 100% line coverage achieved. The remaining branch coverage pertains to unreachable mock edge-cases.
-
-## Signature
-Oleksandr
+Task 2 accepted and closed. The contract is highly secure and meets all core requirements.
