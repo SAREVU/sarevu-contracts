@@ -1,7 +1,9 @@
-No files changed, compilation skipped
+Task 2 — EscrowVault — Fuzz Report
 
-Ran 1 test for contracts/test/ProtocolRegistryTest.t.sol:ProtocolRegistryTest
-[PASS] testFuzz_T1_19_BelowFloorAlwaysReverts(uint256) (runs: 10000, μ: 91970, ~: 91970)
-Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 2.08s (2.08s CPU time)
-
-Ran 1 test suite in 2.09s (2.08s CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
+Results (10000 runs each):
+- testFuzz_T2_F1_DepositAmounts: PASS
+- testFuzz_T2_F1_DepositZeroAlwaysReverts: PASS
+- testFuzz_T2_F2_DelayValues: PASS
+- testFuzz_T2_F3_TerminalStateSingleUse_Release: PASS
+- testFuzz_T2_F3_TerminalStateSingleUse_Refund: PASS
+- testFuzz_T2_F4_ConservationOfValue: PASS

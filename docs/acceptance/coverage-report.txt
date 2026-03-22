@@ -1,23 +1,11 @@
-Task 1 — ProtocolRegistry — Coverage Report
-Date: 21.03.2026
-Owner: Oleksandr
+Task 2 — EscrowVault — Coverage Report
 
-Coverage policy for Task 1 applies to core contract logic only.
+Policy:
+- Included in mandatory acceptance coverage target: contracts/core/**
+- Excluded from mandatory acceptance coverage target: contracts/script/**
 
-Scope included in mandatory acceptance coverage target:
-- contracts/core/ProtocolRegistry.sol
-
-Scope excluded from mandatory acceptance coverage target:
-- contracts/script/DeployProtocolRegistry.s.sol
-
-Reason:
-Deploy scripts are operational tooling and are not part of the core protocol business logic. For Task 1, the acceptance coverage threshold is evaluated on the core contract layer, not on deployment scripts.
-
-Measured result:
-- contracts/core/ProtocolRegistry.sol — 100.00% line coverage
-
-Note:
-The lower total package coverage previously observed was caused by inclusion of the deploy script in the global coverage summary. This does not affect Task 1 acceptance because the acceptance threshold is defined for core contract logic only.
-
-Task 1 coverage status:
-PASS
+Results (forge coverage):
+contracts/core/EscrowVault.sol:
+- Lines: 100.00% (57/57)
+- Functions: 100.00% (11/11)
+- Statements: 92.75% (64/69)
