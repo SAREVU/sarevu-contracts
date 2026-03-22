@@ -764,5 +764,28 @@ contract EscrowVaultTest is Test {
         vm.expectRevert(abi.encodeWithSelector(EscrowVault.InvalidState.selector, BOOKING_A, EscrowVault.EscrowState.Refunded, EscrowVault.EscrowState.Held));
         vm.prank(operator);
         vault.refund(BOOKING_A, guest);
+     }
+        
+    function test_Branch_Deposit_InsufficientBalance_Reverts() public {
+        vm.prank(operator); 
+        vm.expectRevert("MockUSDC: insufficient allowance"); 
+         vault.deposit(BOOKING_A, type(uint256).max, guest);
+    }
+
+    function test_Branch_Release_AlreadyReleased_Reverts() public {
+        _deposit(BOOKING_A, AMOUNT);
+        vm.prank(operator);
+        vault.markReleasable(BOOKING_A, 0);
+        vm.prank(operator);
+        vault.release(BOOKING_A, host);
+        
+        vm.expectRevert(abi.encodeWithSelector(
+            EscrowVault.InvalidState.selector, 
+            BOOKING_A, 
+            EscrowVault.EscrowState.Released, 
+            EscrowVault.EscrowState.Releasable 
+        ));
+        vm.prank(operator);
+        vault.release(BOOKING_A, host);
     }
 }
