@@ -99,11 +99,11 @@ contract EmergencyGuardianTest is Test {
     }
 
     function test_T4_08_RevertIf_ActivateFreezeUnauthorized() public {
-        bytes32 scope = guardian.SCOPE_GLOBAL();
-        vm.prank(attacker);
-        // Use general revert to ensure unauthorized access is blocked
-        vm.expectRevert(); 
-        guardian.activateFreeze(scope, "unauthorized");
+    bytes32 scope = guardian.SCOPE_GLOBAL();
+    vm.prank(attacker);
+    // Use general revert to confirm the call is blocked regardless of error data
+    vm.expectRevert(); 
+    guardian.activateFreeze(scope, "unauthorized");
     }
 
     function test_T4_09_DeactivateFreezeSuccessEmitsEventAndSetsActiveFalse() public {
@@ -154,16 +154,16 @@ contract EmergencyGuardianTest is Test {
         );
         guardian.deactivateFreeze(scope);
     }
+    
+function test_T4_12_RevertIf_DeactivateFreezeUnauthorizedIncludingPauser() public {
+    bytes32 scope = guardian.SCOPE_DISPUTE();
+    vm.prank(pauser);
+    guardian.activateFreeze(scope, "dispute");
 
-    function test_T4_12_RevertIf_DeactivateFreezeUnauthorizedIncludingPauser() public {
-        bytes32 scope = guardian.SCOPE_DISPUTE();
-        vm.prank(pauser);
-        guardian.activateFreeze(scope, "dispute");
-
-        vm.prank(pauser);
-        // Ensure even a Pauser cannot deactivate a freeze
-        vm.expectRevert(); 
-        guardian.deactivateFreeze(scope);
+    vm.prank(pauser);
+    // Confirms that even an authorized Pauser cannot deactivate a freeze
+    vm.expectRevert(); 
+    guardian.deactivateFreeze(scope);
     }
 
     function test_T4_13_IsFrozenCorrectAfterActivateAndDeactivate() public {
